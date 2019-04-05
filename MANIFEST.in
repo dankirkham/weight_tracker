@@ -1,0 +1,4 @@
+include weight_tracker/schema.sql
+graft weight_tracker/static
+graft weight_tracker/templates
+global-exclude *.pyc

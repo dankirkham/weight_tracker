@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Measurements{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('measurements.create') }}">New Measurement</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <ul>
+    {% for measurement in measurements %}
+      <li>{{ measurement['weight'] }} on {{ measurement['recorded'].strftime('%Y-%m-%d') }} (<a href="{{ url_for('measurements.update', id=measurement['id']) }}">Edit</a>)</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
